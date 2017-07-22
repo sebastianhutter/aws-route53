@@ -1,0 +1,119 @@
+---
+
+#
+# dns entries for my domain .hutter.cloud
+#
+
+route53:
+  # hosted zone id (.hutter.cloud)
+  Z3CBRYU3UXXFKT:
+    # mail configuration for hostpoint
+    - name: hutter.cloud.
+      value:
+        - "10 mx1.mail.hostpoint.ch"
+        - "10 mx2.mail.hostpoint.ch"
+      type: mx
+    - name: "*.hutter.cloud."
+      value:
+        - "10 mx1.mail.hostpoint.ch"
+        - "10 mx2.mail.hostpoint.ch"
+      type: mx
+    - name: autoconfig.hutter.cloud.
+      value: 
+        - autoconfig.mail.hostpoint.ch
+      type: cname
+
+    - name: autodiscover.hutter.cloud.
+      value:
+        - autoconfig-nonssl.mail.hostpoint.ch
+      type: cname
+    - name: imap.hutter.cloud.
+      value:
+        - imap.mail.hostpoint.ch
+      type: cname
+    - name: lists.hutter.cloud.
+      value:
+        - lists.admin.hostpoint.ch
+      type: cname
+    - name: mail.hutter.cloud.
+      value:
+        - asmtp.mail.hostpoint.ch
+      type: cname
+    - name: mail2.hutter.cloud.
+      value:
+        - mail2.mail.hostpoint.ch
+      type: cname
+    - name: pop.hutter.cloud.
+      value:
+        - pop.mail.hostpoint.ch
+      type: cname
+    - name: smtp.hutter.cloud.
+      value:
+        - asmtp.mail.hostpoint.ch
+      type: cname
+
+    # amazon ns configuration
+    # cant be removed and therefore not added via cf
+    #- name: hutter.cloud
+    #  value:
+    #    - ns-1495.awsdns-58.org.
+    #    - ns-1022.awsdns-63.net.
+    #    - ns-56.awsdns-07.com.
+    #    - ns-1988.awsdns-56.co.uk.
+    #  type: ns
+    #  ttl: 172800
+    #- name: hutter.cloud
+    #  value:
+    #    - ns-1495.awsdns-58.org. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400
+    #  type: soa
+
+    # cname entries for home based services
+    - name: calibre.hutter.cloud.
+      value:
+        - 4673046fb1e4.sn.mynetname.net
+      type: cname
+    - name: ci.hutter.cloud.
+      value:
+        - 4673046fb1e4.sn.mynetname.net
+      type: cname
+    - name: ftp.hutter.cloud.
+      value:
+        - 4673046fb1e4.sn.mynetname.net
+      type: cname
+    - name: nas.hutter.cloud.
+      value:
+        - 4673046fb1e4.sn.mynetname.net
+      type: cname
+    - name: openvpn.hutter.cloud.
+      value:
+        - 4673046fb1e4.sn.mynetname.net
+      type: cname
+    - name: rancher.hutter.cloud.
+      value:
+        - 4673046fb1e4.sn.mynetname.net
+      type: cname
+    - name: scm.hutter.cloud.
+      value:
+        - 4673046fb1e4.sn.mynetname.net
+      type: cname
+    - name: siroop-squid.hutter.cloud.
+      value:
+        - 4673046fb1e4.sn.mynetname.net
+      type: cname
+    - name: status.hutter.cloud.
+      value:
+        - 4673046fb1e4.sn.mynetname.net
+      type: cname
+    - name: usenet.hutter.cloud.
+      value:
+        - 4673046fb1e4.sn.mynetname.net
+      type: cname
+    - name: vault.hutter.cloud.
+      value:
+        - 4673046fb1e4.sn.mynetname.net
+      type: cname
+    - name: vpn.hutter.cloud.
+      value:
+        - 4673046fb1e4.sn.mynetname.net
+      type: cname
+

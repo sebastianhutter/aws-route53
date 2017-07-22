@@ -1,0 +1,37 @@
+#
+# generate route53 record set via jinjia template
+#
+# render: j2 route53.yaml.j2 route53.yaml > route53.cloudformation
+# apply: aws --profile privat cloudformation deploy --stack-name route53 --template-file route53.cloudformation
+#
+Description: setup dns entries
+
+
+Resources:
+{%- for id in route53 %}
+{%- for e in route53[id] %}
+  {%- set name = e['name']|default("") %}
+  {%- set type = e['type']|default("")|upper %}
+  {%- set value = e['value']|default([]) %}
+  {%- set comment = e['comment']|default("") %}
+  {%- set ttl = e['ttl']|default("300") %}
+  {%- if type and name and value %}
+  DnsRecord{{type}}{{name|replace('*','star')|replace('.','')|replace('-','')}}:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: {{id}}
+      {%- if comment %}
+      Comment: "{{comment}}"
+      {%- endif %}
+      Name: "{{name}}"
+      Type: {{type}}
+      TTL: "{{ttl}}"
+      ResourceRecords:
+        {%- for record in value %}
+        - {{record}}
+        {%- endfor %}
+  {%- else %}
+  # entry {{e}} invalid. missing type, name or value
+  {%- endif %}
+{%- endfor %}
+{%- endfor %}
