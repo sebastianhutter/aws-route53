@@ -116,4 +116,11 @@ route53:
       value:
         - 4673046fb1e4.sn.mynetname.net
       type: cname
-
+    - name: pizza-media.hutter.cloud.
+      value:
+        - 4673046fb1e4.sn.mynetname.net
+      type: cname
+    - name: pizza-api.hutter.cloud.
+      value:
+        - 4673046fb1e4.sn.mynetname.net
+      type: cname
