@@ -88,10 +88,10 @@ route53:
       value:
         - 4673046fb1e4.sn.mynetname.net
       type: cname
-    - name: rancher.hutter.cloud.
-      value:
-        - 4673046fb1e4.sn.mynetname.net
-      type: cname
+    #- name: rancher.hutter.cloud.
+    #  value:
+    #    - 4673046fb1e4.sn.mynetname.net
+    #  type: cname
     - name: scm.hutter.cloud.
       value:
         - 4673046fb1e4.sn.mynetname.net
@@ -124,3 +124,8 @@ route53:
       value:
         - 4673046fb1e4.sn.mynetname.net
       type: cname
+    - name: drone.hutter.cloud.
+      value:
+        - 4673046fb1e4.sn.mynetname.net
+      type: cname
+
